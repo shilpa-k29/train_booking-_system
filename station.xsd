@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="Trainticket">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="station" maxOccurs="unbounded">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="stationid" type="xs:string"></xs:element>
+<xs:element name="stationname" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:simpleType name="date" >
+ <xs:restriction base="xs:string">
+ <xs:whiteSpace value="collapse" fixed="true"/>
+ </xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="Time">
+    <xs:restriction base="xs:string">
+        <xs:pattern value="((0[0-9]|1[0-9]|2[0-3]):[0|3][0]:[0][0])"/>
+    </xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="email">
+<xs:restriction base="xs:string"><xs:pattern value="[^@]+@[^\.]+\..+"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="pass">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9]{8}"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
