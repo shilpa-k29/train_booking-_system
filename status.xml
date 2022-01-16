@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="status.xsl"?>
 <Trainticket xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="status.xsd">
@@ -30,3 +31,37 @@
   
   
 </Trainticket>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="status.xsl"?>
+<Trainticket xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="status.xsd">
+    
+  <Trainstatus>
+    <Bookedseats>54</Bookedseats>
+    <Availableseats>20</Availableseats>
+    <waitingseats>65</waitingseats>
+  </Trainstatus>
+    <Trainstatus>
+    <Bookedseats>43</Bookedseats>
+    <Availableseats>56</Availableseats>
+    <waitingseats>34</waitingseats>
+  </Trainstatus>
+    <Trainstatus>
+    <Bookedseats>67</Bookedseats>
+    <Availableseats>54</Availableseats>
+    <waitingseats>21</waitingseats>
+  </Trainstatus>
+    <Trainstatus>
+    <Bookedseats>89</Bookedseats>
+    <Availableseats>32</Availableseats>
+    <waitingseats>21</waitingseats>
+  </Trainstatus>
+    <Trainstatus>
+    <Bookedseats>90</Bookedseats>
+    <Availableseats>12</Availableseats>
+    <waitingseats>46</waitingseats>
+  </Trainstatus>
+  
+  
+</Trainticket>
+>>>>>>> 41a41b1086db82e7a1f009edd7010c10a95ac0ab

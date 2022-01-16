@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <xs:element name="Trainticket">
@@ -19,4 +20,27 @@
 </xs:complexType>
 </xs:element>
 
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="Trainticket">
+<xs:complexType>
+<xs:sequence>
+
+<xs:element name="Trainstatus" maxOccurs="unbounded">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Bookedseats" type="xs:integer"></xs:element>
+<xs:element name="Availableseats" type="xs:integer"></xs:element>
+<xs:element name="waitingseats" type="xs:integer"></xs:element>
+
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+>>>>>>> 41a41b1086db82e7a1f009edd7010c10a95ac0ab
 </xs:schema>
