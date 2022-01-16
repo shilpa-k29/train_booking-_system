@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="station.xsl"?>
+<Trainticket xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="station.xsd">
+<station>
+    <stationid>1</stationid>
+    <stationname>Byndoor</stationname>
+  </station>
+   <station>
+    <stationid>2</stationid>
+    <stationname>Yeshwanthpur</stationname>
+  </station>
+   <station>
+    <stationid>3</stationid>
+    <stationname>Majestic</stationname>
+  </station>
+   <station>
+    <stationid>4</stationid>
+    <stationname>Mysore</stationname>
+  </station>
+   <station>
+    <stationid>5</stationid>
+    <stationname>Mumbai</stationname>
+  </station>
+   <station>
+    <stationid>6</stationid>
+    <stationname>Delhi</stationname>
+  </station>
+  </Trainticket>
