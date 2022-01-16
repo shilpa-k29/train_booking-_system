@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="Route.xsl"?>
 <Trainticket xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Route.xsd">
@@ -36,42 +35,3 @@
   
   
 </Trainticket>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="Route.xsl"?>
-<Trainticket xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Route.xsd">
-  <trainroute>
-    <stopno>1</stopno>
-    <arrival>12:00:00</arrival>
-    <departure>12:30:00</departure>
-    <distance>30</distance>
-  </trainroute>
-  <trainroute>
-    <stopno>3</stopno>
-    <arrival>12:00:00</arrival>
-    <departure>12:30:00</departure>
-    <distance>30</distance>
-  </trainroute>
-  <trainroute>
-    <stopno>2</stopno>
-    <arrival>12:00:00</arrival>
-    <departure>12:30:00</departure>
-    <distance>30</distance>
-  </trainroute>
-  <trainroute>
-    <stopno>6</stopno>
-    <arrival>12:00:00</arrival>
-    <departure>12:30:00</departure>
-    <distance>30</distance>
-  </trainroute>
-  <trainroute>
-    <stopno>8</stopno>
-    <arrival>12:00:00</arrival>
-    <departure>12:30:00</departure>
-    <distance>30</distance>
-  </trainroute>
-  
-  
-  
-</Trainticket>
->>>>>>> 41a41b1086db82e7a1f009edd7010c10a95ac0ab

@@ -142,6 +142,7 @@ border-radius: 10px;
                     <th colspan=2>Functions</th>
                 </tr>`;
                 
+                
             var x = xmlDoc.getElementsByTagName("trainroute");
             
   
@@ -157,8 +158,8 @@ border-radius: 10px;
                     .childNodes[0].nodeValue + "</td><td>" +
                     x[i].getElementsByTagName("distance")[0]
                     .childNodes[0].nodeValue + "</td>"+
-                    "<td><span class='material-icons' onclick='display("+i+")'>edit</span></td>"+
-                    "<td><span class='material-icons' onclick='remove("+i+")'>delete</span></td></tr>";
+                    "<td><span class='material-icons' onclick='display("+i+")'>edit</span>&nbsp;"+
+                    "<span class='material-icons' onclick='remove("+i+")'>delete</span></td></tr>";
 
             }
   
