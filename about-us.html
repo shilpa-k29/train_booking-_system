@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <!--<title> Login And Registration Form </title>-->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="trainreservation/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
@@ -26,19 +27,21 @@
         </div>
       </div>
     </div>
-    <div class="forms">
-        <div class="form-content">
+    <div class="forms" style="height:105% !important;">
+        <div class="form-content" >
           <div class="login-form">
             <div class="title">Login</div>
           <form action="#">
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Enter your email" required>
+                <input type="text"  placeholder="Enter your email" required>
+                
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password" required>
+                <input type="password"  placeholder="Enter your password" required>
+                
               </div>
               <div class="text"><a href="#">Forgot password?</a></div>
               <div class="button input-box">
@@ -48,27 +51,37 @@
             </div>
         </form>
       </div>
-        <div class="signup-form">
-          <div class="title">Signup</div>
-        <form action="#">
+        <div class="signup-form" style="padding-top: 0 !important; margin-top: 0 !important;">
+          <div class="title" style="padding-left: 0%; margin-left: 5px;">Signup</div>
+        <form action="#" style="padding-left: 0%; margin-left: 5px;">
             <div class="input-boxes">
-              <div class="input-box">
+              <div class="input-box" style="padding-top: 0 !important; margin-top: 0 !important;">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Enter your name" required>
+                <input type="text" style="padding-top: 0 !important; margin-top: 0 !important;"  onkeypress="return test(event)" id="fname" placeholder="Enter your name" required><br>
+                <!-- <span ></span> -->
               </div>
-              <div class="input-box">
+              
+                <span ></span>
+              <!-- </div> -->
+              <div class="input-box" style="padding-top: 0 !important; margin-top: 0 !important;">
                 <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Enter your email" required>
+                <input type="email" style="padding-top: 0 !important; margin-top: 0 !important;" id = "email" placeholder="Enter your email" required>
+                
               </div>
-              <div class="input-box">
+              <span ></span>
+              <div class="input-box" style="padding-top: 0 !important; margin-top: 0 !important;">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password" required>
+                <input type="password" style="padding-top: 0 !important; margin-top: 0 !important;" id="pswd" placeholder="Enter your password" required>
+                <!-- <span></span> -->
               </div>
-		<div class="input-box">
+              <span ></span>
+		<div class="input-box" style="padding-top: 0 !important; margin-top: 0 !important;">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Re-type your password" required>
+                <input type="password" style="padding-top: 0 !important; margin-top: 0 !important;" id ="rpswd" placeholder="Re-type your password" required>
+                <!-- <span></span> -->
               </div>
-              <div class="button input-box">
+              <span ></span>
+              <div class="button input-box" >
                 <input type="submit" value="Sumbit">
               </div>
               <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
@@ -78,5 +91,63 @@
     </div>
     </div>
   </div>
+  
 </body>
 </html>
+<script>
+  var fname = document.getElementById('fname');
+  var email = document.getElementById('email');
+  var pswd = document.getElementById('pswd');
+  var rpswd = document.getElementById('rpswd');
+  var span = document.getElementsByTagName('span');
+  function test(event)
+        {
+            let code=event.which;
+            if(code>47&&code<58)
+            return false;
+            else
+            return true;
+        }
+  fname.onkeydown = function() {
+    const reg = /^[a-zA-Z]{1,}$/;
+    if (reg.test(fname.value)) {
+      span[4].innerText = "Your First Name is Valid";
+      span[4].style.color = "purple";
+    } else {
+      span[4].innerText = "Invalid First Name";
+      span[4].style.color = "red";
+    }
+  }
+  email.onkeydown = function() {
+    const regex1 = /^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]{1,8})$/;
+    const regex2 = /^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]{1,8})(.[a-z]{1,8})$/;
+    if (regex1.test(email.value) || regex2.test(email.value)) {
+      span[5].innerText = "Your Email is Valid";
+      span[5].style.color = "purple";
+    } else {
+      span[5].innerText = "Invalid Email Id";
+      span[5].style.color = "red";
+    }
+  }
+  pswd.onkeydown = function() {
+    const regpswd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~`!@#$%^&*\(\)\-_+={}\[\]|\\;:"<>,./?])[a-zA-Z\d~`!@#$%^&*\(\)\-_+={}\[\]|\\;:"<>,./?]{2,}$/;
+    if (regpswd.test(pswd.value)) {
+      span[6].innerText = "Your Password is Valid";
+      span[6].style.color = "purple";
+    } else {
+      span[6].innerText = "Invalid Password";
+      span[6].style.color = "red";
+    }
+  }
+  rpswd.onkeydown = function() {
+    psd = pswd.value;
+    rpsd = rpswd.value;
+    if (psd.match(rpsd)) {
+      span[7].innerText = "Your reentered password is correct";
+      span[7].style.color = "purple";
+    } else {
+      span[7].innerText = "Reentered password doesn't match";
+      span[7].style.color = "red";
+    }
+  }
+</script>
