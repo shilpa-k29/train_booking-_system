@@ -64,6 +64,12 @@
                 <span ></span>
               <!-- </div> -->
               <div class="input-box" style="padding-top: 0 !important; margin-top: 0 !important;">
+                <i class="fas fa-user"></i>
+                <input type="text" style="padding-top: 0 !important; margin-top: 0 !important;" id = "phone" placeholder="Enter your phone number" required>
+                
+              </div>
+              <span ></span>
+              <div class="input-box" style="padding-top: 0 !important; margin-top: 0 !important;">
                 <i class="fas fa-envelope"></i>
                 <input type="email" style="padding-top: 0 !important; margin-top: 0 !important;" id = "email" placeholder="Enter your email" required>
                 
@@ -96,6 +102,7 @@
 </html>
 <script>
   var fname = document.getElementById('fname');
+  var number = document.getElementById('phone');
   var email = document.getElementById('email');
   var pswd = document.getElementById('pswd');
   var rpswd = document.getElementById('rpswd');
@@ -118,25 +125,35 @@
       span[4].style.color = "red";
     }
   }
+  number.onkeydown = function() {
+    const regnum = /^[0-9]{10}$/;
+    if (regnum.test(number.value)) {
+      span[5].innerText = "Your Number is Valid";
+      span[5].style.color = "purple";
+    } else {
+      span[5].innerText = "Invalid Phone Number";
+      span[5].style.color = "red";
+    }
+  }
   email.onkeydown = function() {
     const regex1 = /^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]{1,8})$/;
     const regex2 = /^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]{1,8})(.[a-z]{1,8})$/;
     if (regex1.test(email.value) || regex2.test(email.value)) {
-      span[5].innerText = "Your Email is Valid";
-      span[5].style.color = "purple";
+      span[6].innerText = "Your Email is Valid";
+      span[6].style.color = "purple";
     } else {
-      span[5].innerText = "Invalid Email Id";
-      span[5].style.color = "red";
+      span[6].innerText = "Invalid Email Id";
+      span[6].style.color = "red";
     }
   }
   pswd.onkeydown = function() {
     const regpswd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~`!@#$%^&*\(\)\-_+={}\[\]|\\;:"<>,./?])[a-zA-Z\d~`!@#$%^&*\(\)\-_+={}\[\]|\\;:"<>,./?]{2,}$/;
     if (regpswd.test(pswd.value)) {
-      span[6].innerText = "Your Password is Valid";
-      span[6].style.color = "purple";
+      span[7].innerText = "Your Password is Valid";
+      span[7].style.color = "purple";
     } else {
-      span[6].innerText = "Invalid Password";
-      span[6].style.color = "red";
+      span[7].innerText = "Invalid Password";
+      span[7].style.color = "red";
     }
   }
   rpswd.onkeydown = function() {
