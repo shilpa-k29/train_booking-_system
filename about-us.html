@@ -136,8 +136,8 @@
     }
   }
   email.onkeydown = function() {
-    const regex1 = /^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]{1,8})$/;
-    const regex2 = /^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]{1,8})(.[a-z]{1,8})$/;
+    const regex1 = /^([a-z0-9\.\-_]{5,25})@christuniversity.in$/;
+    const regex2 = /^([a-z0-9\.\-_]{5,25})@christuniversity.in/;
     if (regex1.test(email.value) || regex2.test(email.value)) {
       span[6].innerText = "Your Email is Valid";
       span[6].style.color = "purple";
