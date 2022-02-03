@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+
+    <link href="trainreservation/css/bootstrap.css" rel="stylesheet">
+
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="trainreservation/css/bootstrap.css">
+    
+        
+    <link href="css/responsive.css" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <style>
+        body
+        th{
+            color:#ec167f;
+            padding: 10px;
+            border: 1px solid rgb(252, 250, 250);
+border-radius: 10px;
+        }
+        h1, td{
+            color: rgb(255, 253, 253);
+            padding: 10px;
+            border: 1px solid rgb(252, 250, 250);
+border-radius: 10px;
+        }
+        label{
+            color: rgb(255, 253, 253);
+        }
+    </style>
+</head>
+<body ng-app="Myemp">
+    <div ng-controller="empCtrl">
+        <div class="input-box" style="padding-top: 0 !important; margin-top: 0 !important;">
+            <i class="fas fa-user"></i>
+           <label>Rows To be diplayed : </label> <input type="number" class="modal-content"style="padding-top: 0 !important; margin-top: 0 !important;" id="name" step="1" min="0" max="6" ng-model="rowlimit" required><br><br>
+       </div>
+       <div class="input-box" style="padding-top: 0 !important; margin-top: 0 !important;">
+       
+       <input type="text" class="modal-content" id="search" placeholder="Enter the Train available to be searched"  ng-model="search" required><br><br>
+   </div>
+        
+       
+<table>
+    <tr>
+        <th>Train number</th>
+        <th>Date</th>
+        <th>Destination</th>
+        <th>Source</th>
+       
+    </tr>
+    <tbody>
+        <tr ng-repeat="emp in employees|limitTo:rowlimit|filter:search">
+            <td>{{emp.trainno|myfilter:limit}}</td>
+            <td>{{emp.date|date:"dd/MM/yyyy"}}</td>
+            <td>{{emp.destination|myfilter:limit}}</td>
+            <td>{{emp.source|myfilter:limit}}</td>
+        
+
+        </tr>
+    </tbody>
+</table>
+
+    </div>
+    
+</body>
+</html>
+<script>
+    var myapp=angular.module("myapp",[]);
+myapp.controller("myctrl",function($scope,$http)
+{
+    $http.get('url')
+    .success(function(response)
+    {
+        $scope.names=response.records;
+    });
+});
+angular.module("Myemp",[])
+.filter("myfilter",function()
+{
+    return function(input,option)
+    {
+        if(isNaN(option)||(option==""))
+        {
+            return input;
+        }
+        else {
+        return input.substring(0,option).toUpperCase();
+    }}
+})
+.controller("empCtrl",function($scope)
+{
+    var employees=[
+        {trainno:'12345',date:new Date("Feb 21,2022"),destination:"Mangalore",source:"Majestic"},
+        {trainno:'1645',date:new Date("Feb 22,2022"),destination:"Mangalore",source:"Yeshwanthpur"},
+        {trainno:'8906',date:new Date("Feb 23,2022"),destination:"Mumbai",source:"Majestic"},
+        {trainno:'58946',date:new Date("Feb 22,2022"),destination:"Majestic",source:"Mumbai"},
+        {trainno:'5456',date:new Date("Feb 22,2022"),destination:"yeshwanthpur",source:"Delhi"},
+        {trainno:'646',date:new Date("Feb 23,2022"),destination:"Delhi",source:"Mumbai"}
+    ];
+    $scope.employees=employees;
+    $scope.rowlimit=6;
+
+});
+</script>
