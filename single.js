@@ -39,7 +39,7 @@ angular.module('myapp',['ngRoute'])
 })
 .controller("studentctrl",function($scope,$http)
 {
-    $http.get('student.json')
+    $http.get('data.json')
     .success(function(response)
     {
         $scope.students=response.records;
