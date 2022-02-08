@@ -1,27 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html >
+<html lang="en" ng-app="myapp">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Javacript</title>
     <script src="angular.min.js"></script>
 
-    <link href="trainreservation/css/bootstrap.css" rel="stylesheet">
+    <!-- <link href="trainreservation/css/bootstrap.css" rel="stylesheet"> -->
 
-    <link href="style.css" rel="stylesheet">
+    <!-- <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-   <link rel="stylesheet" href="trainreservation/css/bootstrap.css">
+   <link rel="stylesheet" href="trainreservation/css/bootstrap.css"> -->
     
         
-    <link href="css/responsive.css" rel="stylesheet">
+    <!-- <link href="css/responsive.css" rel="stylesheet"> -->
     
-    
+    <script src="try.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <style>
-        body
+        body,
         th{
+            background-color: black !important;
             color:#ec167f;
             padding: 10px;
             border: 1px solid rgb(252, 250, 250);
@@ -38,11 +39,11 @@ border-radius: 10px;
         }
     </style>
 </head>
-<body ng-app="Myemp">
-    <div ng-controller="empCtrl">
-        <div class="input-box" style="padding-top: 0 !important; margin-top: 0 !important;">
+<body ng-controller="myctrl">
+    <!-- <div ng-controller="myctrl">  -->
+       <div class="input-box" style="padding-top: 0 !important; margin-top: 0 !important;">
             <i class="fas fa-user"></i>
-           <label>Rows To be diplayed : </label> <input type="number" class="modal-content"style="padding-top: 0 !important; margin-top: 0 !important;" id="name" step="1" min="0" max="6" ng-model="rowlimit" required><br><br>
+           <label>Rows To be diplayed : </label> <input type="number" class="modal-content"style="padding-top: 0 !important; margin-top: 0 !important;" id="name" step="1" min="0" max="30" ng-model="rowlimit" required><br><br>
        </div>
        <div class="input-box" style="padding-top: 0 !important; margin-top: 0 !important;">
        
@@ -56,59 +57,25 @@ border-radius: 10px;
         <th>Date</th>
         <th>Destination</th>
         <th>Source</th>
+        <th>Price(number)</th>
+        <th>Price(Currency)</th>
        
     </tr>
-    <tbody>
-        <tr ng-repeat="emp in employees|limitTo:rowlimit|filter:search">
-            <td>{{emp.trainno|myfilter:limit}}</td>
-            <td>{{emp.date|date:"dd/MM/yyyy"}}</td>
-            <td>{{emp.destination|myfilter:limit}}</td>
-            <td>{{emp.source|myfilter:limit}}</td>
+        <tr ng-repeat="data in names|limitTo:rowlimit|filter:search|filter:myup">
+            <td>{{data.trainno|myfilter:limit}}</td>
+            <td>{{data.date|date:"dd/MM/yyyy"}}</td>
+            <td>{{data.destination|myfilter:limit}}</td>
+            <td>{{data.source|myup}}</td>
+            <td>{{data.price|number:0}}</td>
+            <td>&#8377;{{data.price|number:0}}</td>
+            
         
 
         </tr>
-    </tbody>
+   
 </table>
 
-    </div>
+    <!-- </div> -->
     
 </body>
 </html>
-<script>
-    var myapp=angular.module("myapp",[]);
-myapp.controller("myctrl",function($scope,$http)
-{
-    $http.get('url')
-    .success(function(response)
-    {
-        $scope.names=response.records;
-    });
-});
-angular.module("Myemp",[])
-.filter("myfilter",function()
-{
-    return function(input,option)
-    {
-        if(isNaN(option)||(option==""))
-        {
-            return input;
-        }
-        else {
-        return input.substring(0,option).toUpperCase();
-    }}
-})
-.controller("empCtrl",function($scope)
-{
-    var employees=[
-        {trainno:'12345',date:new Date("Feb 21,2022"),destination:"Mangalore",source:"Majestic"},
-        {trainno:'1645',date:new Date("Feb 22,2022"),destination:"Mangalore",source:"Yeshwanthpur"},
-        {trainno:'8906',date:new Date("Feb 23,2022"),destination:"Mumbai",source:"Majestic"},
-        {trainno:'58946',date:new Date("Feb 22,2022"),destination:"Majestic",source:"Mumbai"},
-        {trainno:'5456',date:new Date("Feb 22,2022"),destination:"yeshwanthpur",source:"Delhi"},
-        {trainno:'646',date:new Date("Feb 23,2022"),destination:"Delhi",source:"Mumbai"}
-    ];
-    $scope.employees=employees;
-    $scope.rowlimit=6;
-
-});
-</script>
