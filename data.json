@@ -1,5 +1,5 @@
-{
-"data":[    
+{"records":
+[    
         {"trainno":12345,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic"},
         {"trainno":313,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic"},
         {"trainno":545,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic"},
@@ -13,5 +13,4 @@
         {"trainno":8797,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic"}
         
 ]
-
 }
