@@ -1,16 +1,17 @@
 {"records":
-[    
-        {"trainno":12345,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic"},
-        {"trainno":313,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic"},
-        {"trainno":545,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic"},
-        {"trainno":545,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic"},
-        {"trainno":545,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic"},
-        {"trainno":87,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic"},
-        {"trainno":454,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic"},
-        {"trainno":78,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic"},
-        {"trainno":84,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic"},
-        {"trainno":544,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic"},
-        {"trainno":8797,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic"}
+        [    
+                {"trainno":12345,"date":"Feb 21,2022","destination":"Mangalore","source":"Majestic","price":"1000.00"},
+                {"trainno":313,"date":"Feb 21,2022","destination":"Bangalore","source":"Mumbai","price":"1509.00"},
+                {"trainno":545,"date":"Feb 21,2022","destination":"Mangalore","source":"Delhi","price":"2000.00"},
+                {"trainno":545,"date":"Feb 21,2022","destination":"Delhi","source":"Majestic","price":"2500.00"},
+                {"trainno":545,"date":"Feb 21,2022","destination":"Mumbai","source":"Delhi","price":"1000.00"},
+                {"trainno":87,"date":"Feb 21,2022","destination":"Kolkata","source":"Majestic","price":"1500.00"},
+                {"trainno":454,"date":"Feb 21,2022","destination":"Mangalore","source":"Kolkata","price":"1060.00"},
+                {"trainno":78,"date":"Feb 21,2022","destination":"Kerala","source":"Mangalore","price":"4000.00"},
+                {"trainno":84,"date":"Feb 21,2022","destination":"Majestic","source":"Kerala","price":"3300.00"},
+                {"trainno":544,"date":"Feb 21,2022","destination":"Andhra Pradesh","source":"Majestic","price":"1030.00"},
+                {"trainno":8797,"date":"Feb 21,2022","destination":"West Bengal","source":"Yeshwanthpur","price":"1400.00"}
+                
+        ]
+        }
         
-]
-}
