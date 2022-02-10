@@ -1,18 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--ng-app directive tells AngularJS that myApp
+	is the root element of the application -->
+<html ng-app="myApp">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Page App</title>
-    <link rel="stylesheet" href="static/css/index.css">
+    <!--import the angularjs libraries-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js">
+    </script>
+    <!-- CSS only -->
+    <link href="index.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <nav class="nav">
-        <a href="/" class="nav__link" data-link>Dashboard</a>
-        <a href="/posts" class="nav__link" data-link>Posts</a>
-        <a href="/settings" class="nav__link" data-link>Settings</a>
-    </nav>
-    <div id="app"></div>
-    <script type="module" src="static/js/index.js"></script>
+    <style>
+        a {
+            color: rgb(241, 206, 206);
+            background-color: rgb(0, 0, 0);
+            font-size: 30px;
+        }
+        body,
+        th{
+            background-color: black !important;
+            color:#ec167f;
+            padding: 10px;
+            border: 1px solid rgb(252, 250, 250);
+border-radius: 10px;
+        }
+        h1, td{
+            color: rgb(255, 253, 253);
+            padding: 10px;
+            border: 1px solid rgb(252, 250, 250);
+border-radius: 10px;
+        }
+        label{
+            color: rgb(255, 253, 253);
+        }
+    
+    </style>
+    <!--hg-template indicates the pages
+			that get loaded as per requirement-->
+    <div class="col">
+        <script type="text/ng-template" id="about.html">
+            <br>
+            <h1 style="color:pink;text-align:center">Train Reservation</h1>
+            
+            
+        
+            <p class="responsive" style="font:25px timesnewroman;text-align:center"><br>{{message}}</p>
+        </script>
+        <!--
+            second controller 
+        -->
+        <script type="text/ng-template" id="train.html">
+            <div style="text-align: center;font-family: timesnewroman;font-size: 40px">Train details</div>
+
+            <div class="row">
+                <table >
+                    
+                        <tr>
+                            <th>Train No<br>
+
+                            </th>
+                            <th>Date<br>
+
+                            </th>
+                            <th >Destination<br>
+
+                            </th>
+                            <th >Source<br>
+
+                            </th>
+                            <th >Price<br>
+
+                            </th>
+
+
+                        </tr>
+                    
+                    <tbody>
+            </div>
+            <tr ng-repeat="item in names">
+                
+                <td>{{item.trainno|uppercase}}</td>
+                <td>{{item.date|date:"dd/MM/yyyy"}}</td>
+                <td>{{item.destination|uppercase}}</td>
+                <td>{{item.source|uppercase}}</td>
+                <td>{{item.price|number:0}}</td>
+
+            </tr>
+
+            </tbody>
+            </table>
+
+        </script>
+        <!--
+            third controller
+        -->
+        <script type="text/ng-template" id="trains.html">
+            <div style="text-align: center;font-family: timesnewroman;font-size: 40px">Search Details</div>
+            <div class="row form-group" style="text-align: center">
+                <div class="col-4"></div>
+                <div class="col-4"><br><input class="form-control" type="text" placeholder="Search " ng-model="find"></div>
+                <div class="col-4"></div>
+            </div>
+            <div class="row form-group">
+                <div class="col-5"></div>
+                <div class="col-5"></div>
+            </div>
+            <div class="row">
+                <table >
+                   
+                        <tr>
+                            
+                                <div class ="row">
+                                    ROWS :<br><input type="number" ng-model="rowlimit">
+
+                                </div><br>
+                            
+                            <th scope="col">Train No<br>
+                                <input type="text" ng-model="search.trainno">
+                            </th>
+                            <th scope="col">Date<br>
+                                <input type="text" ng-model="search.date">
+                            </th>
+                            <th scope="col">Destination<br>
+                                <input type="text" ng-model="search.destination">
+                            </th>
+                            <th scope="col">Source<br>
+                                <input type="text" ng-model="search.source">
+                            </th>
+                            <th scope="col">Price<br>
+                                <input type="text" ng-model="search.price">
+                            </th>
+
+                        </tr>
+                   
+                    <tbody>
+            </div>
+            <tr ng-repeat="item in names|filter:search|filter:find |filter:find2 |limitTo:rowlimit | orderBy:'-price'">
+                
+                <td>{{item.trainno|uppercase}}</td>
+                <td>{{item.date|date:"dd/MM/yyyy"}}</td>
+                <td>{{item.destination|uppercase}}</td>
+                <td>{{item.source|uppercase}}</td>
+                <td>{{item.price|number:0}}</td>
+            </tr>
+            </tr>
+
+            </tbody>
+            </table>
+        </script>
+    </div>
+    <!--hyperlinks to load different
+			pages dynamically-->
+            <nav class="nav">
+                <a href="#/about" class="nav__link" data-link>About-us</a>
+                <a href="#/train" class="nav__link" data-link>Train Details</a>
+                <a href="#/trains" class="nav__link" data-link>Search Details</a>
+            </nav>
+
+    <div ng-view></div>
+    <script type="text/javascript" src="try.js"></script>
 </body>
+
 </html>
